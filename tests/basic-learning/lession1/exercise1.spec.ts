@@ -9,7 +9,8 @@ test('check title', async ({ page }) => {
 test('check selenium text', async ({ page }) => {
     await page.goto('https://www.guru99.com/');
     // 2 identical elements, take one first() nth() take the first element
-    await page.getByRole('link', { name: 'Selenium' }).nth(0).click();
+    await page.getByRole('link', { name: 'Selenium' }).nth(1).click();
     // check H2 has text "Selenium Tutorial Syllabus"
+    console.log(await page.locator('h2').allTextContents());
     await expect(page.getByRole('heading', { name: 'Selenium Tutorial Syllabus' })).toBeVisible();
 });
