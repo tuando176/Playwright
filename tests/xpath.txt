@@ -1,0 +1,7 @@
+1/ I am an info callout!
+    + Xpath tuyệt đối:
+        /html/body/div/div[1]/section[2]/div/div[2]/div[2]/div/div[2]/div[2]/h5
+
+    + Xpath tương đối:
+        //h5[text()='I am a danger callout!']
+        //h5[contains(text(),'danger')]
