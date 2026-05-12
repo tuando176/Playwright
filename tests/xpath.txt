@@ -1,3 +1,8 @@
+Tại trang: https://k4admin.congcu.org/pages/UI/general.html, viết xpath, css selector để chọn được các phần tử sau:
+I am an info callout!
+Collapsible Group Success
+Progress Bars Different Sizes
+
 1/ I am an info callout!
     + Xpath tuyệt đối:
         /html/body/div/div[1]/section[2]/div/div[2]/div[2]/div/div[2]/div[2]/h5
@@ -5,3 +10,21 @@
     + Xpath tương đối:
         //h5[text()='I am a danger callout!']
         //h5[contains(text(),'danger')]
+
+2/ Collapsible Group Success
+    + Xpath tuyệt đối:
+        /html/body/div/div/section[2]/div/div[6]/div/div/div[2]/div/div[3]/div/h4/a
+    
+    + Xpath tương đối:
+        //a[contains(text(),'Collapsible Group Success')]
+        //a[normalize-space()='Collapsible Group Success']
+        //a[contains(normalize-space(),'Collapsible Group Success')]
+
+3/ Progress Bars Different Sizes
+    + Xpath tuyệt đối:
+        /html/body/div/div/section[2]/div/div[4]/div[1]/div/div/h3
+    
+    + Xpath tương đối:
+        //h3[normalize-space()="Progress Bars Different Sizes"]
+        
+        
