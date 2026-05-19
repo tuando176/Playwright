@@ -1,7 +1,7 @@
 import test, { expect } from "@playwright/test";
 
 test(" add comment",async ({ page }) => {
-    // go to page https://shop.congcu.org/2024/02/25/kinh-nghiem-chon-va-thuong-thuc-bia-doc-dao-tren-toan-the-gioi/
+    // go to page https://shop.congcu.org/
     await page.goto("https://shop.congcu.org/2024/02/25/kinh-nghiem-chon-va-thuong-thuc-bia-doc-dao-tren-toan-the-gioi/");
 
     // add bình luận

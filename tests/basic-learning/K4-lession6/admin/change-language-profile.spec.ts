@@ -23,7 +23,7 @@ test("login  with EN", async ({ page }) => {
 
     // Click login button
     await page.locator("//input[@id='wp-submit']").click();
-    // await page.waitForTimeout(5000)
+    await page.waitForTimeout(5000);
 
     //click button User 
     await page.locator("//li[@id='menu-users']").hover();
