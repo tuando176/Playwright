@@ -14,7 +14,7 @@ function makeid(length: number) {
     }
 
     return result;
-}
+};
 
 test.describe("Add - Approve - Delete Comments",  () => {
 

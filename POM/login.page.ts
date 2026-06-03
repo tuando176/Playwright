@@ -11,7 +11,7 @@ export class LoginPage {
   remberLoc: Locator;
   loginLoc: Locator;
 
-  constructor(page: Page, loginUrl: string) {
+  constructor(page: Page) {
     this.page = page;
     this.emailLoc = page.locator("//input[@id='user_login']")
     this.passwordLoc = page.locator("//input[@id='user_pass']")
@@ -49,4 +49,4 @@ export class LoginPage {
     });
   };
 
-}
+};
