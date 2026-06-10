@@ -19,9 +19,9 @@ test.describe("Lesson 8 - POM",  () => {
         // login admin
         const loginPage = new LoginPage(page);
         await loginPage.gotoLogin();
-        await loginPage.fillInformation("productionuser", "production-account-password", true);
-        await loginPage.login();
+        await loginPage.fillInformation("productionuser", "production-account-password");
+        await loginPage.clickLogin();
 
-        await loginPage.performLogin("productionuser", "production-account-password", true);
+        await loginPage.login("productionuser", "production-account-password", true);
     });
 });

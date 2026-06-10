@@ -5,18 +5,17 @@ export class LoginPage {
 
   // Property
   loginUrl!: string;
-
   emailLoc: Locator;
   passwordLoc: Locator;
-  remberLoc: Locator;
-  loginLoc: Locator;
+  rememberMeLoc: Locator;
+  loginButtonLoc: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.emailLoc = page.locator("//input[@id='user_login']")
     this.passwordLoc = page.locator("//input[@id='user_pass']")
-    this.remberLoc = page.locator("//input[@id='rememberme']")
-    this.loginLoc = page.locator("//input[@id='wp-submit']")
+    this.rememberMeLoc = page.locator("//input[@id='rememberme']")
+    this.loginButtonLoc = page.locator("//input[@id='wp-submit']")
   };
 
   // MEthod / function
@@ -24,22 +23,26 @@ export class LoginPage {
     await this.page.goto("https://shop.congcu.org/wp-login.php");
   };
 
-  async fillInformation(email: string, password: string, isRemember: boolean) {
+  async fillInformation(email: string, password: string) {
     await this.emailLoc.fill(email);
     await this.passwordLoc.fill(password);
-    if (isRemember) {
-      await this.remberLoc.check();
+  };
+
+  async checkRememberMe(isCheck: boolean = true) {
+    if (isCheck) {
+      await this.rememberMeLoc.check();
     }
+  }
+
+  async clickLogin() {
+    await this.loginButtonLoc.click();
   };
 
-  async login() {
-    await this.loginLoc.click();
-  };
-
-  async performLogin(username: string, password: string, isRemember: boolean) {
+  async login(username: string, password: string, isRemember: boolean = true) {
     await this.gotoLogin();
-    await this.fillInformation(username, password, isRemember);
-    await this.login();
+    await this.fillInformation(username, password);
+    await this.checkRememberMe(false);
+    await this.clickLogin();
   };
 
   async chooseLanguage(languageName: string) {
