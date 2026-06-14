@@ -26,21 +26,25 @@ test("check comment- thao", async ({ page }) => {
   await expect(commentPage.welcomeMsgLoc).toBeVisible();
 
   // goto comments
-  // await dashboardPage.gotoMenu("Phản hồi");
   await commentPage.gotoMenuComment();
 
   // search comment: "thao"
-  await commentPage.fillSearchContent("thao");
+  await commentPage.fillSearchContent("tuando");
 
   await page.waitForLoadState("networkidle");
 
-  // verify: tất cả các comment: bao gồm Thao ở comment hoặc ở tên tác giả hoawcj noi dung
+  // networkidle (idle = rảnh) Là sự kiện
+  // Để đạt được sự kiện thì cần thỏa mãn: trong vòng 500 ms
+    // Không có request mới nào phát sinh
+    // Các request hiện tại đã hoàn thành
+
+  // verify: tất cả các comment: bao gồm Thao ở comment hoặc ở tên tác giả hoặc noi dung
   // B1: lay ra all comment
-  const allComments = await commentPage.listCommentLocs.all();
+  const allComments = await commentPage.listCommentLocs.all();   //.all() : lấy ra tất cả các locator
 
   // B2: tach: comment, ten tac gia, noi dung
   for (let i = 0; i < allComments.length; i++) {
-    const comment = allComments[i];
+    const comment = allComments[i];   // lấy ra từng phần tử thứ i trong mỗi lần lặp
     const commentChilds = await comment.locator("td").all();
     const commentAuthorAndEmail = commentChilds[0];
     const commentContent = commentChilds[1];
@@ -53,7 +57,7 @@ test("check comment- thao", async ({ page }) => {
       || email.toLowerCase().includes("thao")
       || content.toLowerCase().includes("thao");
 
-    // expect(isContainThao).toBeTruthy();
+    // expect(isContainThao).toBeTruthy();    // toBeTruthy() là true
     console.log(`stt: ${i}, content: ${content}`);
     expect(isContainThao).toEqual(true);
   }

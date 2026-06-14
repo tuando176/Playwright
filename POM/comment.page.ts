@@ -14,7 +14,8 @@ export class CommentPage extends DashboardPage {
   }
 
   async fillSearchContent(comment: string) {
+    // await this.page.locator("//input[@id='comment-search-input']").fill(comment);
     await this.searchInputLoc.fill(comment);
-    await this.page.keyboard.press("Enter");
+    await this.page.keyboard.press("Enter");    // nhấn phím Enter
   }
 }
